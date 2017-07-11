@@ -1,0 +1,46 @@
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <input placeholder="Número Cartão" (blur)="buscaBandeira()" name="numCard" [(ngModel)]="dados.numCard" #numCard="ngModel">
+    <br>
+    <input placeholder="Validade Cartão (MM/AA)" name="mesValidadeCard" [(ngModel)]="dados.mesValidadeCard" #mesValidadeCard="ngModel">
+    <br>
+    <input placeholder="Validade Cartão (MM/AA)" name="anoValidadeCard" [(ngModel)]="dados.anoValidadeCard" #anoValidadeCard="ngModel">
+    <br>
+    <input placeholder="Cod Segurança" name="codSegCard" [(ngModel)]="dados.codSegCard" #codSegCard="ngModel">
+    <br>
+    <input placeholder="Nome" name="nome" [(ngModel)]="dados.nome" #nome="ngModel">
+    <br>
+    <input placeholder="CPF" name="cpf" [(ngModel)]="dados.cpf" #cpf="ngModel">
+    <br>
+    <input placeholder="Data Nascimento" name="nascimento" [(ngModel)]="dados.nascimento" #nascimento="ngModel">
+    <br>
+    <input placeholder="Telegone (DD) 123456789" name="telefone" [(ngModel)]="dados.telefone" #telefone="ngModel">
+    <br>
+    <input type="Email" name="email" [(ngModel)]="dados.email" #email="ngModel" placeholder="E-mail Contato">
+    <br>
+    <input placeholder="Endereço" name="logradouro" [(ngModel)]="dados.logradouro" #logradouro="ngModel">
+    <br>
+    <input placeholder="Número" name="numero" [(ngModel)]="dados.numero" #numero="ngModel">
+    <br>
+    <input placeholder="Bairro" name="bairro" [(ngModel)]="dados.bairro" #bairro="ngModel">
+    <br>
+    <input placeholder="CEP" name="cep" [(ngModel)]="dados.cep" #cep="ngModel">
+    <br>
+    <select placeholder="Estado" name="estado" [(ngModel)]="dados.estado" #estado="ngModel" class="width-100">
+        <option [value]="'ba'">Bahia</option>			
+    </select>
+    <br>
+    <select placeholder="Cidade" name="cidade" [(ngModel)]="dados.cidade" #cidade="ngModel" class="width-100">
+        <option [value]="'Vitoria da Conquista'">Vitória da Conquista</option>			
+    </select>
+     <select name="parcela" [(ngModel)]="dados.parcela" #parcela="ngModel" class="width-100">
+        <option *ngFor="let p of dados.parcelas" [value]="p['quantity']+'|'+p['installmentAmount']">{{ p['quantity'] + "x " + p['installmentAmount'] }}</option>			
+    </select>
+    <br>
+    <div class="text-right" style="margin-top: 30px;">
+        <button type="submit">Pagar</button>
+    </div>
+</form>
+    
+
+   
+  
